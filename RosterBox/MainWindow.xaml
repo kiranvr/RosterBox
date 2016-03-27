@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RosterBox"
         xmlns:vm="clr-namespace:RosterBoxLibrary.ViewModels;assembly=RosterBoxLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="447.368" Width="1198.684">
     <Window.DataContext>
         <vm:XBoardViewModel/>
     </Window.DataContext>
@@ -42,11 +42,12 @@
 
 
         <ListView Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True"  >
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <Border x:Name="bordermenu">
-                            <TextBlock Foreground="Red" Text="{Binding StartDate}"/>
+                            <TextBlock Foreground="Red" FontWeight="ExtraBlack" Text="{Binding StartDate}"/>
                         </Border>
                         <ListView Name="itemListViewss" ItemsSource="{Binding Weeks}"  >
                             <ListView.ItemTemplate>
@@ -56,6 +57,11 @@
                                             <TextBlock Foreground="Blue" Text="{Binding EndDate}" x:Name="submenu" />
                                         </Border>
                                         <ListView Name="itemListViews2s" ItemsSource="{Binding Days}"  >
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel  >
