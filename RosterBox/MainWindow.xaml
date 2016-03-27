@@ -41,7 +41,7 @@
         </ListView>-->
 
 
-        <ListView Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True"  >
+        <ListView Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True" ScrollViewer.CanContentScroll="False" >
             
             <ListView.ItemTemplate>
                 <DataTemplate>
