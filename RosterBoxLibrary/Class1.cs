@@ -47,9 +47,9 @@ namespace RosterBoxLibrary
 
     public class XDay
     {
-        public XWeek Week { get; set; }
+        public XWeek Week { get;  set; }
         ObservableCollection<XShift> shifts = new ObservableCollection<XShift>();
-        public DateTime Date { get; set; }
+        public DateTime Date { get; private set; }
 
         public ObservableCollection<XShift> Shifts
         {
@@ -64,9 +64,12 @@ namespace RosterBoxLibrary
             }
         }
 
-        public XDay()
-        {
+          public DayOfWeek DayOfWeek { get;  private set; }
 
+        public XDay(DateTime day)
+        {
+            this.Date = day;
+            this.DayOfWeek = day.DayOfWeek;
         }
         public void AddShift(XShift shift)
         {
@@ -177,7 +180,7 @@ namespace RosterBoxLibrary
                     currentCycle.AddWeek(currentWeek);
                 }
 
-                XDay xday = new XDay() { Date = day };
+                XDay xday = new XDay(day) ;  
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S1" });
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S2" });
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S3" });

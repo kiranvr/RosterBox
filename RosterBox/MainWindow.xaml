@@ -66,7 +66,10 @@
                                                 <DataTemplate>
                                                     <StackPanel  >
                                                         <Border x:Name="bordersubmenu">
-                                                            <TextBlock Foreground="black" Text="{Binding Date, StringFormat={}{0:dd MMM yyyy},ConverterCulture=en-GB}" x:Name="submenu" />
+                                                            <TextBlock Background="DodgerBlue" Foreground="white" Text="{Binding Date, StringFormat={}{0:dd MMM yyyy},ConverterCulture=en-GB}" x:Name="submenu" />
+                                                        </Border>
+                                                        <Border x:Name="borderdayofweek">
+                                                            <TextBlock Background="Black" Foreground="White" FontWeight="Bold" Text="{Binding DayOfWeek}" x:Name="che" />
                                                         </Border>
                                                         <ListView Name="itemListViewss3" ItemsSource="{Binding Shifts}"  >
                                                             <ListView.ItemTemplate>
