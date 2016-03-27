@@ -4,10 +4,90 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RosterBox"
+        xmlns:vm="clr-namespace:RosterBoxLibrary.ViewModels;assembly=RosterBoxLibrary"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:XBoardViewModel/>
+    </Window.DataContext>
     <Grid>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <!--<ListView x:Name="listview1" ItemsSource="{Binding Cycles}" HorizontalAlignment="Left" Height="186" Margin="26,112,0,0" VerticalAlignment="Top" Width="459">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                   
+                        <StackPanel>
+                            <Border x:Name="bordersubmenu">
+                                <TextBlock Text="{Binding StartDate  }"/>
+                            </Border>
+                            <ListView x:Name="listview2" ItemsSource="{Binding SillyChildern}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                         
+                                            <StackPanel>
+                                                <Border x:Name="bordersubmenuss">
+                                                    <TextBlock Text="{Binding SillyChildName  }"/>
+                                                </Border>
+                                            </StackPanel>
+                                       
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackPanel>
+                   
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+
+
+        <ListView Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Border x:Name="bordermenu">
+                            <TextBlock Foreground="Red" Text="{Binding StartDate}"/>
+                        </Border>
+                        <ListView Name="itemListViewss" ItemsSource="{Binding Weeks}"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel  >
+                                        <Border x:Name="bordersubmenu">
+                                            <TextBlock Foreground="Blue" Text="{Binding EndDate}" x:Name="submenu" />
+                                        </Border>
+                                        <ListView Name="itemListViews2s" ItemsSource="{Binding Days}"  >
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel  >
+                                                        <Border x:Name="bordersubmenu">
+                                                            <TextBlock Foreground="black" Text="{Binding Date}" x:Name="submenu" />
+                                                        </Border>
+                                                        <ListView Name="itemListViewss3" ItemsSource="{Binding Shifts}"  >
+                                                            <ListView.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel  >
+                                                                        <Border x:Name="bordersubmenu">
+                                                                            <TextBox Foreground="DodgerBlue" Text="{Binding Type}" x:Name="submenu" />
+                                                                        </Border>
+
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </ListView.ItemTemplate>
+                                                        </ListView>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
 
     </Grid>
 </Window>

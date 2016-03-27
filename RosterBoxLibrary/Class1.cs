@@ -48,16 +48,29 @@ namespace RosterBoxLibrary
     public class XDay
     {
         public XWeek Week { get; set; }
-        List<XShift> shifts = new List<XShift>();
+        ObservableCollection<XShift> shifts = new ObservableCollection<XShift>();
         public DateTime Date { get; set; }
-        public ReadOnlyCollection<XShift> Shifts = null;
+
+        public ObservableCollection<XShift> Shifts
+        {
+            get
+            {
+                return shifts;
+            }
+
+            set
+            {
+                shifts = value;
+            }
+        }
+
         public XDay()
         {
-            this.shifts = new List<XShift>(shifts);
+
         }
         public void AddShift(XShift shift)
         {
-            this.shifts.Add(shift);
+            this.Shifts.Add(shift);
             shift.Day = this;
         }
 
@@ -66,45 +79,76 @@ namespace RosterBoxLibrary
     {
         public XWeek()
         {
-            this.Days = new ReadOnlyCollection<XDay>(days);
+            // this.Days = new ReadOnlyCollection<XDay>(days);
         }
         public XCycle Cycle { get; set; }
-        List<XDay> days = new List<XDay>();
+        ObservableCollection<XDay> days = new ObservableCollection<XDay>();
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public ReadOnlyCollection<XDay> Days = null;
+
+        public ObservableCollection<XDay> Days
+        {
+            get
+            {
+                return days;
+            }
+
+            set
+            {
+                days = value;
+            }
+        }
 
         public void AddDay(XDay day)
         {
-            this.days.Add(day);
+            this.Days.Add(day);
             day.Week = this;
         }
     }
     public class XCycle
     {
-        List<XWeek> weeks = new List<XWeek>();
+        ObservableCollection<XWeek> weeks = new ObservableCollection<XWeek>();
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public ReadOnlyCollection<XWeek> Weeks = null;
+
+        public ObservableCollection<XWeek> Weeks
+        {
+            get
+            {
+                return weeks;
+            }
+
+            set
+            {
+                weeks = value;
+            }
+        }
+
         public XCycle()
         {
-            this.Weeks = new ReadOnlyCollection<XWeek>(weeks);
+            //this.Weeks = new ReadOnlyObservableCollection<XWeek>(weeks);
         }
         public void AddWeek(XWeek week)
         {
-            this.weeks.Add(week);
+            this.Weeks.Add(week);
             week.Cycle = this;
+
+
         }
+
+
+
+
 
     }
 
     public class XBoard
     {
-        List<XCycle> cycles = new List<XCycle>();
+        ObservableCollection<XCycle> cycles = new ObservableCollection<XCycle>();
 
-        internal List<XCycle> Cycles
+        public ObservableCollection<XCycle> Cycles
         {
             get { return cycles; }
             set { cycles = value; }
@@ -132,8 +176,14 @@ namespace RosterBoxLibrary
                 }
 
                 XDay xday = new XDay() { Date = day };
+                xday.Shifts.Add(new XShift() { Day = xday, Type = "S1" });
+                xday.Shifts.Add(new XShift() { Day = xday, Type = "S2" });
+                xday.Shifts.Add(new XShift() { Day = xday, Type = "S3" });
                 currentWeek.AddDay(xday);
             }
+
+            //this.cycles[0].SillyChildren.Add(new SillyChildern() { SillyChildName = "SILLLYYYYYY" });
+
         }
 
         public IEnumerable<DateTime> EachDay(DateTime from, DateTime thru)//TODO is a utility method/can be moved to helper
@@ -142,5 +192,16 @@ namespace RosterBoxLibrary
                 yield return day;
         }
 
+        public override string ToString()
+        {
+            return "its x board";
+        }
+    }
+
+
+
+    public class SillyChildern
+    {
+        public string SillyChildName { get; set; }
     }
 }

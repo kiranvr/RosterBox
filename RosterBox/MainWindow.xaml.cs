@@ -1,4 +1,5 @@
 ﻿using RosterBoxLibrary;
+using RosterBoxLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,14 @@ namespace RosterBox
         public MainWindow()
         {
             InitializeComponent();
+            //XBoard xboard = new XBoard();
+            //xboard.Generate(new DateTime(2016, 2, 1), new DateTime(2016, 8, 1));
+            //this.DataContext = new XBoardViewModel();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            XBoard xboard = new XBoard();
-            xboard.Generate(new DateTime(2016, 2, 1), new DateTime(2016, 8, 1));
+           
         }
     }
 }
