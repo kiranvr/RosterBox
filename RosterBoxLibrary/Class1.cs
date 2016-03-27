@@ -159,17 +159,19 @@ namespace RosterBoxLibrary
             int i = 0;
             XCycle currentCycle = null;
             XWeek currentWeek = null;
+            
+
             foreach (DateTime day in EachDay(start, end))
             {
-                i++;
-                if (i == 1 || i % 36 == 0)
+
+                if (i % 35 == 0)
                 {
                     currentCycle = new XCycle() { Id = (i / 35) + 1 };
                     this.Cycles.Add(currentCycle);
 
                 }
 
-                if (i == 1 || i % 8 == 0)
+                if (i % 7 == 0)
                 {
                     currentWeek = new XWeek() { Id = (i / 7) + 1 };
                     currentCycle.AddWeek(currentWeek);
@@ -180,6 +182,7 @@ namespace RosterBoxLibrary
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S2" });
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S3" });
                 currentWeek.AddDay(xday);
+                i++;
             }
 
             //this.cycles[0].SillyChildren.Add(new SillyChildern() { SillyChildName = "SILLLYYYYYY" });
