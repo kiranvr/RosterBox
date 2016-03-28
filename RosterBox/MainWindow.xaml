@@ -11,35 +11,7 @@
         <vm:XBoardViewModel/>
     </Window.DataContext>
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <!--<ListView x:Name="listview1" ItemsSource="{Binding Cycles}" HorizontalAlignment="Left" Height="186" Margin="26,112,0,0" VerticalAlignment="Top" Width="459">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                   
-                        <StackPanel>
-                            <Border x:Name="bordersubmenu">
-                                <TextBlock Text="{Binding StartDate  }"/>
-                            </Border>
-                            <ListView x:Name="listview2" ItemsSource="{Binding SillyChildern}" >
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                         
-                                            <StackPanel>
-                                                <Border x:Name="bordersubmenuss">
-                                                    <TextBlock Text="{Binding SillyChildName  }"/>
-                                                </Border>
-                                            </StackPanel>
-                                       
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-
-                        </StackPanel>
-                   
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-
+         
 
         <ListView Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True" ScrollViewer.CanContentScroll="False" >
             
