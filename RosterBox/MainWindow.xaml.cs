@@ -41,7 +41,7 @@ namespace RosterBox
             XBoardViewModel vm = (XBoardViewModel)this.DataContext;
             vm.Xboard.Cycles[0].Weeks[0].Days[0].Shifts[0].Type = "I-" + DateTime.Now.Second;
 
-            
+            //commented
 
             
         }
