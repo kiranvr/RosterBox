@@ -79,12 +79,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView x:Name="Engineers" Grid.Column="1" ItemsSource="{Binding Mgr.Engineers}"    >
+            <ListView x:Name="Engineers" Grid.Column="1" ItemsSource="{Binding StaffMgr.Engineers}"    >
                 <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel  >
                         <Border x:Name="bordersubmenu">
-                            <TextBox Foreground="DodgerBlue" Text="{Binding Name }" x:Name="submenu" />
+                            <TextBlock Foreground="White" Background="Green" Text="{Binding Name }" x:Name="submenu" />
                         </Border>
 
                     </StackPanel>

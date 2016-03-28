@@ -11,10 +11,10 @@ namespace RosterBox.ViewModels
     public class XBoardViewModel: INotifyPropertyChanged
     {
         XBoard xboard = new XBoard();
-        EngineerMgr mgr = new EngineerMgr();
+        EngineerMgr staffMgr = new EngineerMgr();
         public XBoardViewModel()
         {
-            Xboard.Generate(new DateTime(2016, 2, 1), new DateTime(2016, 8, 1));
+            Xboard.Generate(new DateTime(2016, 2, 1), new DateTime(2016, 3, 1));
 
         }
 
@@ -31,16 +31,16 @@ namespace RosterBox.ViewModels
             }
         }
 
-        public EngineerMgr Mgr
+        public EngineerMgr StaffMgr
         {
             get
             {
-                return mgr;
+                return staffMgr;
             }
 
             set
             {
-                mgr = value;
+                staffMgr = value;
             }
         }
 
