@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RosterBoxLibrary;
 
-namespace RosterBoxLibrary.ViewModels
+namespace RosterBox.ViewModels
 {
     public class XBoardViewModel: INotifyPropertyChanged
     {

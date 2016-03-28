@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RosterBox"
-        xmlns:vm="clr-namespace:RosterBoxLibrary.ViewModels;assembly=RosterBoxLibrary"
+        xmlns:vm="clr-namespace:RosterBox.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="447.368" Width="1198.684">
     <Window.DataContext>
@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Click="Button_Click_1"  >Test</Button>
