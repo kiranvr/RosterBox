@@ -17,6 +17,29 @@ namespace RosterBoxLibrary
 
     public class EngineerMgr
     {
+        ObservableCollection<Engineer> engineers = new ObservableCollection<Engineer>();
+
+        public ObservableCollection<Engineer> Engineers
+        {
+            get
+            {
+                return engineers;
+            }
+
+            set
+            {
+                engineers = value;
+            }
+        }
+
+        public EngineerMgr()
+        {
+            this.engineers.Add(new Engineer() { Id = 1, EmpNo = "A123", Name = "Jame", ProfileImagePath = "" });
+            this.engineers.Add(new Engineer() { Id = 2, EmpNo = "A223", Name = "Tom", ProfileImagePath = "" });
+            this.engineers.Add(new Engineer() { Id = 3, EmpNo = "A323", Name = "Alice", ProfileImagePath = "" });
+            this.engineers.Add(new Engineer() { Id = 3, EmpNo = "A32s3", Name = "Bob", ProfileImagePath = "" });
+            this.engineers.Add(new Engineer() { Id = 3, EmpNo = "A32e3", Name = "Trude", ProfileImagePath = "" });
+        }
 
     }
     public class ShiftAllocator
@@ -33,7 +56,8 @@ namespace RosterBoxLibrary
         public int Id { get; set; }
         public string EmpNo { get; set; }
 
-
+        public string Name { get; set; }
+        public string ProfileImagePath { get; set; }
 
     }
 

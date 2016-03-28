@@ -28,6 +28,7 @@ namespace RosterBox
             //XBoard xboard = new XBoard();
             //xboard.Generate(new DateTime(2016, 2, 1), new DateTime(2016, 8, 1));
             //this.DataContext = new XBoardViewModel();
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,10 @@ namespace RosterBox
         {//checking if vm update reflects in UI
             XBoardViewModel vm = (XBoardViewModel)this.DataContext;
             vm.Xboard.Cycles[0].Weeks[0].Days[0].Shifts[0].Type = "I-" + DateTime.Now.Second;
+
+            
+
+            
         }
     }
 }
