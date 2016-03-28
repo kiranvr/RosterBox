@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,18 +37,37 @@ namespace RosterBoxLibrary
 
     }
 
-    public class XShift
+    public class XShift : INotifyPropertyChanged
     {
         public XDay Day { get; set; }
-        public string Type { get; set; }
+
         public string StartTime { get; set; }
         public string EndTime { get; set; }
 
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+                if (PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("Type"));
+                }
+            }
+        }
+
+        string type;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     public class XDay
     {
-        public XWeek Week { get;  set; }
+        public XWeek Week { get; set; }
         ObservableCollection<XShift> shifts = new ObservableCollection<XShift>();
         public DateTime Date { get; private set; }
 
@@ -64,7 +84,7 @@ namespace RosterBoxLibrary
             }
         }
 
-          public DayOfWeek DayOfWeek { get;  private set; }
+        public DayOfWeek DayOfWeek { get; private set; }
 
         public XDay(DateTime day)
         {
@@ -162,7 +182,7 @@ namespace RosterBoxLibrary
             int i = 0;
             XCycle currentCycle = null;
             XWeek currentWeek = null;
-            
+
 
             foreach (DateTime day in EachDay(start, end))
             {
@@ -180,7 +200,7 @@ namespace RosterBoxLibrary
                     currentCycle.AddWeek(currentWeek);
                 }
 
-                XDay xday = new XDay(day) ;  
+                XDay xday = new XDay(day);
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S1" });
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S2" });
                 xday.Shifts.Add(new XShift() { Day = xday, Type = "S3" });

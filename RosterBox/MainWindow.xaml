@@ -11,9 +11,16 @@
         <vm:XBoardViewModel/>
     </Window.DataContext>
     <Grid>
-         
-
-        <ListView Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True" ScrollViewer.CanContentScroll="False" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Click="Button_Click_1"  >Test</Button>
+            <Button>Test</Button>
+        </StackPanel>
+        <ListView Grid.Row="1" Name="groupListView" ItemsSource="{Binding Xboard.Cycles}"   AllowDrop="True" ScrollViewer.CanContentScroll="False" >
             
             <ListView.ItemTemplate>
                 <DataTemplate>

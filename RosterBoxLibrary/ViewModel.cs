@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RosterBoxLibrary.ViewModels
 {
-    public class XBoardViewModel
+    public class XBoardViewModel: INotifyPropertyChanged
     {
         XBoard xboard = new XBoard();
         public XBoardViewModel()
@@ -27,5 +28,7 @@ namespace RosterBoxLibrary.ViewModels
                 xboard = value;
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

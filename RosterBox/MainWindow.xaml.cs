@@ -34,5 +34,11 @@ namespace RosterBox
         {
            
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {//checking if vm update reflects in UI
+            XBoardViewModel vm = (XBoardViewModel)this.DataContext;
+            vm.Xboard.Cycles[0].Weeks[0].Days[0].Shifts[0].Type = "I-" + DateTime.Now.Second;
+        }
     }
 }
